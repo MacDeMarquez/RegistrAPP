@@ -12,28 +12,25 @@
     </ion-list-header>
 
     <ion-item>
-      <ion-button size="large" shape="round" [routerLink]="['/home']">
+      <ion-button fill="clear" size="large" [routerLink]="['/home']">
         <ion-icon name="home-outline"></ion-icon>
-        <h2>Home</h2>
+        Home
       </ion-button>
     </ion-item>
 
     <ion-item>
-      <ion-button size="medium" shape="round" [routerLink]="['/login']">
+      <ion-button fill="clear" size="large" [routerLink]="['/login']">
         <ion-icon  name="person-outline"></ion-icon>
-        <h5>Login</h5>
+        Login
       </ion-button>
     </ion-item>
 
     <ion-item>
-      <ion-button size="medium" shape="round" [routerLink]="['/registro']">
+      <ion-button fill="clear" size="large" [routerLink]="['/registro']">
         <ion-icon name="person-add-outline"></ion-icon>
-        <h5>Registro</h5>
+        Registro
       </ion-button>
     </ion-item>
-
-    
-    
 
   </ion-list>
 </ion-content>
@@ -42,8 +39,16 @@
 <ion-footer>
   <ion-toolbar>
     <ion-title>Footer</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
-    </ion-buttons>
+    <ion-item>
+      <ion-button fill="clear" size="medium" [routerLink]="['/home']">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="medium" [routerLink]="['/menu-inicio']">
+        <ion-icon name="grid-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" size="medium" [routerLink]="['/login']">
+        <ion-icon  name="person-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
   </ion-toolbar>  
 </ion-footer>
