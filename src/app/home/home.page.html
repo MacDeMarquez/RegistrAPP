@@ -8,20 +8,23 @@
 
 <ion-content [fullscreen]="true">
 
-  <div id="container">
+  <div class="container-home">
   <ion-list>
     <ion-list-header>
       <ion-label>¡Bienvenido a RegistrAPP!<br>Elige cómo iniciar sesión:</ion-label>
     </ion-list-header>
 
     <ion-item>
-      <ion-button size="default" expand="block" [routerLink]="['/login']">
-        Ingresar
+      <ion-button fill="clear" size="large" [routerLink]="['/login']">
+        <ion-icon  name="person-outline"></ion-icon>
+        Login
       </ion-button>
     </ion-item>
+
     <ion-item>
-      <ion-button ssize="default" expand="block" [routerLink]="['/registro']">
-        Registrarse
+      <ion-button fill="clear" size="large" [routerLink]="['/registro']">
+        <ion-icon name="person-add-outline"></ion-icon>
+        Registro
       </ion-button>
     </ion-item>
   </ion-list>
