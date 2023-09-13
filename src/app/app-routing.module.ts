@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'rest-contra',
     loadChildren: () => import('./rest-contra/rest-contra.module').then( m => m.RestContraPageModule)
   },
+  {
+    path: 'menu-inicio',
+    loadChildren: () => import('./menu-inicio/menu-inicio.module').then( m => m.MenuInicioPageModule)
+  },
 
 ];
 
