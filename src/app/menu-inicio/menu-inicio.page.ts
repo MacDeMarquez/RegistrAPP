@@ -7,7 +7,7 @@ import { CompartirNombreService } from '../compartir-nombre.service';
   styleUrls: ['./menu-inicio.page.scss'],
 })
 export class MenuInicioPage implements OnInit {
-nombre: string = '';
+  nombre: string = '';
   constructor(public nombreService: CompartirNombreService) { }
 
   ngOnInit() {
