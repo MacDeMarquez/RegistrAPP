@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompartirNombreService } from '../compartir-nombre.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',

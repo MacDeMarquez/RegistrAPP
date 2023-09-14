@@ -9,7 +9,6 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -26,8 +25,6 @@
     labelPlacement="floating"
     errorText="Usuario inválido"></ion-input>
   </ion-item>
-  
-  
 
   <ion-item>
     <ion-input
@@ -35,8 +32,6 @@
     type="password"
     placeholder="*********"></ion-input>
   </ion-item>
-
-
 
   <ion-item>
     <ion-button (click)="guardarNombre()" size="medium" shape="round" [routerLink]="['/menu-inicio']">
@@ -47,7 +42,5 @@
   <ion-item>
     <a [routerLink]="['/rest-contra']">Olvidé mi contraseña</a>
   </ion-item>
-
-
 
 </ion-content>
