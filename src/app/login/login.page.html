@@ -10,36 +10,45 @@
 <ion-content [fullscreen]="true">
   <div class="container-login">
     <ion-list>
-      <ion-list-header>
-        <ion-title expand="block">Ingrese sus credenciales</ion-title>
-      </ion-list-header>
+      <ion-list>
+        <ion-list-header>
+          <ion-title>Ingrese sus datos</ion-title>
+        </ion-list-header>
 
-  <ion-item>
-    <ion-input
-    type="text"
-    [(ngModel)]="nombre"
-    fill="solid"
-    label="Nombre de Usuario"
-    labelPlacement="floating"
-    errorText="Usuario inválido"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-input
+            label="Nombre de Usuario"
+            labelPlacement="floating"
+            [clearInput]="true"
+            fill="solid"
+            placeholder="Ej: MarcoGarcia"
+            [(ngModel)]="nombre"
+            errorText="Usuario inválido">
+          </ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-input
-    label="Contraseña"
-    type="password"
-    placeholder="*********"></ion-input>
-  </ion-item>
+        <ion-item>
+          <ion-input
+            type="password"
+            fill="solid"
+            label="  Contraseña"
+            labelPlacement="floating"
+            [clearInput]="true"
+            placeholder="*********"
+            errorText="Contraseña incorrecta">
+          </ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-button (click)="guardarNombre()" size="medium" shape="round" [routerLink]="['/menu-inicio']">
-      Ingresar
-    </ion-button>
-  </ion-item>
+        <ion-item>
+          <ion-button expand="full" color="primary" (click)="guardarNombre()" size="medium" shape="round" [routerLink]="['/menu-inicio']">
+            Ingresar
+          </ion-button>
+        </ion-item>
 
-  <ion-item>
-    <a [routerLink]="['/rest-contra']">Olvidé mi contraseña</a>
-  </ion-item>
-</ion-list>
-</div>
+        <ion-item>
+          <a [routerLink]="['/rest-contra']">Olvidé mi contraseña</a>
+        </ion-item>
+      </ion-list>
+    </ion-list>  
+  </div>
 </ion-content>
