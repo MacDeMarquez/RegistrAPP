@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Inicio</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -8,31 +13,28 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Ingrese sus credenciales</ion-title>
+      <ion-title expand="block">Ingrese sus credenciales</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-item>
     <ion-input
-    type="email"
+    type="text"
     fill="solid"
-    label="Correo institucional"
+    label="Nombre de Usuario"
     labelPlacement="floating"
-    helperText="Ingrese un correo válido"
-    errorText="Correo inválida"
-    ngModel
-    email></ion-input>
+    errorText="Usuario inválido"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-input
     label="Contraseña"
     type="password"
-    value="password"></ion-input>
+    placeholder="*********"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-button size="12" expand="block" shape="round" [routerLink]="['/menu-inicio']">
+    <ion-button size="medium" shape="round" [routerLink]="['/menu-inicio']">
       Ingresar
     </ion-button>
   </ion-item>
