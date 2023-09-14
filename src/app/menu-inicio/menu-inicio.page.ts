@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompartirNombreService } from '../compartir-nombre.service';
 
 @Component({
   selector: 'app-menu-inicio',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-inicio.page.scss'],
 })
 export class MenuInicioPage implements OnInit {
-
-  constructor() { }
+nombre: string = '';
+  constructor(public nombreService: CompartirNombreService) { }
 
   ngOnInit() {
+    this.nombre = this.nombreService.getNombre();
   }
 
 }
