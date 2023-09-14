@@ -1,20 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Inicio</ion-title>
-
     <ion-buttons slot="end">
       <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title expand="block">Ingrese sus credenciales</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-login">
+    <ion-list>
+      <ion-list-header>
+        <ion-title expand="block">Ingrese sus credenciales</ion-title>
+      </ion-list-header>
 
   <ion-item>
     <ion-input
@@ -42,5 +40,6 @@
   <ion-item>
     <a [routerLink]="['/rest-contra']">Olvidé mi contraseña</a>
   </ion-item>
-
+</ion-list>
+</div>
 </ion-content>
