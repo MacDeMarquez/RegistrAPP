@@ -8,10 +8,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="container-registro">
-    <ion-list>
-      <ion-title expand="block">Registrar nuevo usuario</ion-title>
-    </ion-list>
-  </div>
   
+  <ion-content>
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-input label="Nombre" labelPlacement="floating" placeholder="Marco" type="text" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Apellido" labelPlacement="floating" placeholder="Garcia" type="text" formControlName="apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Correo" labelPlacement="floating" placeholder="correo@email.cl" type="email" formControlName="correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Nombre de Usuario" labelPlacement="floating" placeholder="ma.garcial" type="text" formControlName="nombreUsuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Contraseña" labelPlacement="floating" placeholder="***********" type="password" formControlName="contrasena"></ion-input>
+      </ion-item>
+      <ion-button expand="block" type="submit" [disabled]="!registroForm.valid">Registrarse</ion-button>
+    </form>
+  </ion-content>
 </ion-content>
