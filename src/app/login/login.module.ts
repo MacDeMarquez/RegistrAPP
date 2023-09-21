@@ -8,7 +8,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
 
-import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   imports: [
@@ -17,7 +17,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     IonicModule,
     LoginPageRoutingModule,
-    MatFormFieldModule,
   ],
   declarations: [LoginPage]
 })
