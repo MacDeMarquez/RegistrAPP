@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from './crud.service';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -10,7 +11,8 @@ import { ToastController } from '@ionic/angular';
 export class RegistroPage implements OnInit {
   alumno: any = [];
   constructor(private crud:CrudService,
-    private toast:ToastController) { }
+    private toast:ToastController,
+    private router:Router) { }
   
   ngOnInit() {
     
@@ -19,18 +21,19 @@ export class RegistroPage implements OnInit {
   async guardar() {
     if(!this.alumno.nombre)
       this.msjError('Falta el nombre');
-    else if (this.alumno.apellido)
+    else if (!this.alumno.apellido)
       this.msjError('Falta el apellido');
-    else if (this.alumno.correo)
+    else if (!this.alumno.correo)
       this.msjError('Falta el correo');
-    else if (this.alumno.usuario)
+    else if (!this.alumno.usuario)
       this.msjError('Falta el nombre de usuario');
-    else if (this.alumno.contrasenia)
+    else if (!this.alumno.contrasenia)
       this.msjError('Falta la contraseña');
     else{
       this.crud.guardar(this.alumno.usuario, this.alumno);
       this.msjExito('Cuenta creada');
       this.alumno = [];
+      this.router.navigateByUrl('/login');
     }
   }
 

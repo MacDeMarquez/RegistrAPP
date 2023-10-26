@@ -1,0 +1,20 @@
+{
+  "usuario": [
+    {
+      "id": 1,
+      "usuario": "ma.garcial",
+      "nombre": "Marco",
+      "apellido": "Garcia",
+      "correo": "ma.garcial@gmail.com",
+      "contrasenia": "12345"
+    },
+    {
+      "usuario": "ca.marquez",
+      "nombre": "Catalina",
+      "apellido": "Marquez",
+      "correo": "ca.marquez@gmail.com",
+      "contrasenia": "12345",
+      "id": 2
+    }
+  ]
+}
