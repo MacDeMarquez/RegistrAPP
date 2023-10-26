@@ -10,23 +10,21 @@
 <ion-content [fullscreen]="true">
   
   <ion-content>
-    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
-      <ion-item>
-        <ion-input label="Nombre" labelPlacement="floating" placeholder="Marco" type="text" formControlName="nombre"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Apellido" labelPlacement="floating" placeholder="Garcia" type="text" formControlName="apellido"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Correo" labelPlacement="floating" placeholder="correo@email.cl" type="email" formControlName="correo"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Nombre de Usuario" labelPlacement="floating" placeholder="ma.garcial" type="text" formControlName="nombreUsuario"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Contraseña" labelPlacement="floating" placeholder="***********" type="password" formControlName="contrasena"></ion-input>
-      </ion-item>
-      <ion-button expand="block" type="submit" [disabled]="!registroForm.valid">Registrarse</ion-button>
-    </form>
+    <ion-item> 
+      <ion-input label="Nombre" labelPlacement="floating" placeholder="Marco" type="text" [(ngModel)]="alumno.nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Apellido" labelPlacement="floating" placeholder="Garcia" type="text" [(ngModel)]="alumno.apellido"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Correo" labelPlacement="floating" placeholder="correo@email.cl" type="email" [(ngModel)]="alumno.correo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Nombre de Usuario" labelPlacement="floating" placeholder="ma.garcial" type="text" [(ngModel)]="alumno.usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Contraseña" labelPlacement="floating" placeholder="***********" type="password" [(ngModel)]="alumno.contrasenia"></ion-input>
+    </ion-item>
+    <ion-button expand="block" type="submit" (click)="guardar()">Registrarse</ion-button>
   </ion-content>
 </ion-content>

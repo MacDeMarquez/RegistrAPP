@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CrudService } from './crud.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -7,25 +8,51 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  registroForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) {
-    this.registroForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      correo: ['', [Validators.required, Validators.email]],
-      nombreUsuario: ['', Validators.required],
-      contrasena: ['', [Validators.required, Validators.minLength(6)]]
-    });
+  alumno: any = [];
+  constructor(private crud:CrudService,
+    private toast:ToastController) { }
+  
+  ngOnInit() {
+    
   }
 
-  onSubmit() {
-    if (this.registroForm.valid) {
-      // Aquí puedes enviar los datos de registro al servidor o realizar otras acciones.
-      console.log(this.registroForm.value);
+  async guardar() {
+    if(!this.alumno.nombre)
+      this.msjError('Falta el nombre');
+    else if (this.alumno.apellido)
+      this.msjError('Falta el apellido');
+    else if (this.alumno.correo)
+      this.msjError('Falta el correo');
+    else if (this.alumno.usuario)
+      this.msjError('Falta el nombre de usuario');
+    else if (this.alumno.contrasenia)
+      this.msjError('Falta la contraseña');
+    else{
+      this.crud.guardar(this.alumno.usuario, this.alumno);
+      this.msjExito('Cuenta creada');
+      this.alumno = [];
     }
   }
 
-  ngOnInit() {
+  async msjExito(mensaje:string){
+    const t = await this.toast.create({
+      message : mensaje,
+      color   : 'success',
+      icon    : 'checkmark-circle-outline',
+      duration: 3500,
+      buttons : ['Aceptar']
+    });
+    t.present();
   }
 
+  async msjError(mensaje:string){
+    const t = await this.toast.create({
+      message : mensaje,
+      color   : 'danger',
+      icon    : 'alert-outline',
+      duration: 3500,
+      buttons : ['Aceptar']
+    });
+    t.present();
+  }
 }
