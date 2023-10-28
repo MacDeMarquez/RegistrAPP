@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="container-login">
-    <ion-list>
+    <form [formGroup]="login" (ngSubmit)="onSubmit()">
       <ion-list>
         <ion-list-header>
           <ion-title>Ingrese sus datos</ion-title>
@@ -17,6 +17,7 @@
 
         <ion-item>
           <ion-input
+            formControlName="usuario"
             label="Nombre de Usuario"
             labelPlacement="floating"
             [clearInput]="true"
@@ -28,6 +29,7 @@
         <ion-item>
           <ion-input
             type="password"
+            formControlName="contrasenia"
             fill="solid"
             label="Contraseña"
             labelPlacement="floating"
@@ -37,7 +39,7 @@
         </ion-item>
 
         <ion-item>
-          <ion-button expand="full" color="primary" size="medium" shape="round">
+          <ion-button expand="full" color="primary" size="medium" shape="round" type="submit" [disabled]="login.invalid">
             Ingresar
           </ion-button>
         </ion-item>
@@ -46,6 +48,6 @@
           <a [routerLink]="['/rest-contra']">Olvidé mi contraseña</a>
         </ion-item>
       </ion-list>
-    </ion-list>  
+    </form>
   </div>
 </ion-content>
