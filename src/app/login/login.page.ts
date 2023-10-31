@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JsondbService } from './jsondb.service';
 import { ToastController } from '@ionic/angular';
+import { AutenticacionService } from './autenticacion.service';
 
 
 
@@ -17,7 +18,8 @@ export class LoginPage implements OnInit {
   constructor(private form:FormBuilder,
     private router:Router,
     private db:JsondbService,
-    private toast:ToastController) {
+    private toast:ToastController,
+    private autenticacion:AutenticacionService) {
     this.login = this.form.group({
       usuario: ['', Validators.required],
       contrasenia: ['', Validators.required]
@@ -25,20 +27,17 @@ export class LoginPage implements OnInit {
   }
 
   onSubmit() {
-    if(this.login.valid) {
-      const usuario =  this.login.get('usuario')?.value;
-      const contrasenia =  this.login.get('contrasenia')?.value;
-      this.db.obtenerUsuarios().subscribe((data: any) => {
-        const users = data.users;
-        const user = users.find((x: any) => x.usuario === usuario && x.contrasenia === contrasenia);
+    if (this.login.valid) {
+      const username = this.login.get('usuario')?.value;
+      const password = this.login.get('contrasenia')?.value;
 
-        if(user) {
+      this.autenticacion.login(username, password).subscribe((autenticado) => {
+        if (autenticado) {
           this.router.navigateByUrl('/menu-inicio');
         } else {
-          this.msjError('Usuario y/o contraseña incorrectos')
+          this.msjError('Usuario y/o contraseña incorrectos');
         }
       });
-
     }
   }
 

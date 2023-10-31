@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class JsondbService {
-  private db = 'http://localhost:3000/usuario';
+  private db = 'http://localhost:3000/usuarios';
   constructor(private http:HttpClient) { }
-
+  
   obtenerUsuarios(){
     return this.http.get(this.db);
   }
