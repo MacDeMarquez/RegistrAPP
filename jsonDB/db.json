@@ -3,16 +3,25 @@
     {
       "id": 1,
       "usuario": "ma.garcial",
+      "nombre": "marco",
+      "apellido": "garcia",
+      "correo": "ma.garcial@gmail.com",
       "contrasenia": "12345"
     },
     {
       "id": 2,
       "usuario": "ca.marquez",
+      "nombre": "catalina",
+      "apellido": "marquez",
+      "correo": "ca.marquez@gmail.com",
       "contrasenia": "12345"
     },
     {
       "id": 3,
       "usuario": "marco",
+      "nombre": "marco",
+      "apellido": "garcia",
+      "correo": "ma.garcial@gmail.com",
       "contrasenia": "12345"
     }
   ]
