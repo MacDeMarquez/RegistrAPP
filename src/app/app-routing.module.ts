@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'infoalumnos/:id',
     loadChildren: () => import('./infoalumnos/infoalumnos.module').then( m => m.InfoalumnosPageModule)
+  },  {
+    path: 'qrasistencia',
+    loadChildren: () => import('./qrasistencia/qrasistencia.module').then( m => m.QrasistenciaPageModule)
   },
+
 
 
 ];

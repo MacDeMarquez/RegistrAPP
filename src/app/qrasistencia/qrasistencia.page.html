@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Asistencia</ion-title>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="menu-inicio"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-text color="primary">
+    <h1>Codigo QR asistencia</h1>
+  </ion-text>
+  <input type="text" [(ngModel)]="texto">
+  <br><br>
+  <qrcode [qrdata]="texto" [width]="400"></qrcode>
+</ion-content>

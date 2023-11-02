@@ -26,14 +26,15 @@
         <ion-label> {{usuario.nombre}} {{usuario.apellido}}</ion-label>
       </ion-item>
     </ion-list>
-
+    <ion-button (click)="onClick()" expand="expand" fill="clear" shape="round">
+      Asistencia en codigo QR
+    </ion-button>
   </ion-list>
 </ion-content>
 
 
 <ion-footer >
   <ion-toolbar >
-    <!-- <ion-title >Footer</ion-title> -->
     <ion-item>
       <ion-button fill="clear" size="medium" [routerLink]="['/home']">
         <ion-icon name="home-outline"></ion-icon>
