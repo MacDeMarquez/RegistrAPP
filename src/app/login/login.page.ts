@@ -14,6 +14,7 @@ import { AutenticacionService } from './autenticacion.service';
 })
 
 export class LoginPage implements OnInit {
+  logoapp: string = './assets/img/logoapp.png';
   login: FormGroup;
   constructor(private form:FormBuilder,
     private router:Router,
