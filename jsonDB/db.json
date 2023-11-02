@@ -18,17 +18,17 @@
     },
     {
       "id": 3,
-      "usuario": "marco",
-      "nombre": "marco",
-      "apellido": "garcia",
+      "usuario": "nayared",
+      "nombre": "nayared",
+      "apellido": "huenchullan",
       "correo": "ma.garcial@gmail.com",
       "contrasenia": "12345"
     },
     {
       "id": 4,
       "usuario": "1",
-      "nombre": "marco",
-      "apellido": "garcia",
+      "nombre": "mario",
+      "apellido": "galarce",
       "correo": "ma.garcial@gmail.com",
       "contrasenia": "1"
     }
@@ -37,12 +37,38 @@
     {
       "userid": 1,
       "id": 1,
-      "nombreramo": "Programacion"
+      "nombreramo": "Programacion",
+      "horario": "19:00 - 21:00"
     },
     {
       "userid": 1,
       "id": 2,
-      "nombreramo": "Base de datos"
+      "nombreramo": "Base de datos",
+      "horario": "21:10 - 22:30"
+    },
+    {
+      "userid": 2,
+      "id": 1,
+      "nombreramo": "Programacion",
+      "horario": "21:10 - 22:30"
+    },
+    {
+      "userid": 2,
+      "id": 2,
+      "nombreramo": "Base de datos",
+      "horario": "19:00 - 21:00"
+    },
+    {
+      "userid": 3,
+      "id": 3,
+      "nombreramo": "Aplicaciones moviles",
+      "horario": "19:00 - 21:00"
+    },
+    {
+      "userid": 4,
+      "id": 3,
+      "nombreramo": "Aplicaciones moviles",
+      "horario": "19:00 - 21:00"
     }
   ]
 }

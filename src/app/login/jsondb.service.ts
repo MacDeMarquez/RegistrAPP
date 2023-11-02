@@ -18,9 +18,15 @@ export class JsondbService {
 
   getRamos(id:string){
     this.ramos = [];
-    const url = this.db + 'ramos/' + id;
+    const url = this.db + 'usuarios/' + id;
     this.http.get(url).subscribe((data=[]) => { this.ramos = data; });
   }
+
+  getRamosByUserId(userId: string) {
+    const url = this.db + 'ramos?userid=' + userId;
+    return this.http.get(url);
+  }
+  
 
 
 

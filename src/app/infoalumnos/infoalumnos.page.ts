@@ -11,19 +11,22 @@ export class InfoalumnosPage implements OnInit {
 
   constructor(private db:JsondbService,
     private activated: ActivatedRoute) { }
-  ramos : any = [];
-  ngOnInit() {
-    this.activated.paramMap.subscribe(p => {
-      const idRamos = p.get('id')??'';
-      this.db.getRamos(idRamos);
-    })
-  }
+    userId: any;
+    ramos: any = [];
+    ngOnInit() {
+      this.activated.paramMap.subscribe(params => {
+        this.userId = params.get('id');
+        if (this.userId) {
+          this.db.getRamosByUserId(this.userId)
+            .subscribe(ramos => {
+              this.ramos = ramos;
+            });
+        }
+      });
+    }
+  
 
-  ionViewDidEnter()
-  {
-    this.ramos = this.db.ramos;
-  }
-
+  
   
 
 }
