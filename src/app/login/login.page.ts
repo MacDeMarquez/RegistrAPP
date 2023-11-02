@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CompartirNombreService } from '../compartir-nombre.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { JsondbService } from './jsondb.service';
+import { ToastController } from '@ionic/angular';
+import { AutenticacionService } from './autenticacion.service';
+
+
 
 @Component({
   selector: 'app-login',
@@ -9,36 +14,57 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 
 export class LoginPage implements OnInit {
-  nombreForm: FormGroup; // Creamos un FormGroup para el formulario
-  nombre= '';
-  constructor(
-    private nombreService: CompartirNombreService,
-    private formBuilder: FormBuilder // Inyectamos FormBuilder
-  ) {
-    // Configuramos el formulario y añadimos la validación
-    this.nombreForm = this.formBuilder.group({
-      nombre: ['', Validators.required],
-      contrasena: ['', [Validators.required, Validators.minLength(6)]]
+  logoapp: string = './assets/img/logoapp.png';
+  login: FormGroup;
+  constructor(private form:FormBuilder,
+    private router:Router,
+    private db:JsondbService,
+    private toast:ToastController,
+    private autenticacion:AutenticacionService) {
+    this.login = this.form.group({
+      usuario: ['', Validators.required],
+      contrasenia: ['', Validators.required]
     });
+  }
+
+  onSubmit() {
+    if (this.login.valid) {
+      const username = this.login.get('usuario')?.value;
+      const password = this.login.get('contrasenia')?.value;
+
+      this.autenticacion.login(username, password).subscribe((autenticado) => {
+        if (autenticado) {
+          this.router.navigateByUrl('/menu-inicio');
+        } else {
+          this.msjError('Usuario y/o contraseña incorrectos');
+        }
+      });
+    }
   }
 
   ngOnInit() {
   }
 
+  async msjExito(mensaje:string){
+    const t = await this.toast.create({
+      message : mensaje,
+      color   : 'success',
+      icon    : 'checkmark-circle-outline',
+      duration: 3500,
+      buttons : ['Aceptar']
+    });
+    t.present();
+  }
 
-  guardarNombre() {
-    this.nombreService.setNombre(this.nombre);
+  async msjError(mensaje:string){
+    const t = await this.toast.create({
+      message : mensaje,
+      color   : 'danger',
+      icon    : 'alert-outline',
+      duration: 3500,
+      buttons : ['Aceptar']
+    });
+    t.present();
   }
   
-  onSumbit() {
-    // Validamos el formulario antes de guardar el nombre
-    if (this.nombreForm.valid) {
-      // Si el formulario es válido, guardamos el nombre
-      this.nombreService.setNombre(this.nombreForm.value.nombre); //OJO CON ESTO NO SÉ SI ESTÁ BIEN
-    } else {
-      // Si el formulario no es válido, puedes manejar el error aquí
-      // Por ejemplo, mostrar un mensaje de error al usuario
-      console.log('Formulario no válido'); //NO DEBERÍA DEJAR AVANZAR.
-    }
-  }
 }

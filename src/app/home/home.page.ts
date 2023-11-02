@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+    logoapp: string = './assets/img/logoapp.png';
 
   constructor() {}
 
+  ngOnInit() {
+  }
 }
