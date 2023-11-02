@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>infoalumnos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Ramos y horarios</ion-label>
+  </ion-item>
+  <ion-list *ngFor="let x of ramos">
+    <ion-label> {{x.nombreramo}}</ion-label>
+  </ion-list>
+</ion-content>

@@ -23,6 +23,26 @@
       "apellido": "garcia",
       "correo": "ma.garcial@gmail.com",
       "contrasenia": "12345"
+    },
+    {
+      "id": 4,
+      "usuario": "1",
+      "nombre": "marco",
+      "apellido": "garcia",
+      "correo": "ma.garcial@gmail.com",
+      "contrasenia": "1"
+    }
+  ],
+  "ramos": [
+    {
+      "userid": 1,
+      "id": 1,
+      "nombreramo": "Programacion"
+    },
+    {
+      "userid": 1,
+      "id": 2,
+      "nombreramo": "Base de datos"
     }
   ]
 }

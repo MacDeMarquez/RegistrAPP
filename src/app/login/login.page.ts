@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { JsondbService } from './jsondb.service';
 import { ToastController } from '@ionic/angular';
 import { AutenticacionService } from './autenticacion.service';
+import { JsondbService } from './jsondb.service';
+import { Router } from '@angular/router';
 
 
 
@@ -15,9 +15,10 @@ import { AutenticacionService } from './autenticacion.service';
 
 export class LoginPage implements OnInit {
   login: FormGroup;
+  usuarios : any;
   constructor(private form:FormBuilder,
-    private router:Router,
     private db:JsondbService,
+    private router:Router,
     private toast:ToastController,
     private autenticacion:AutenticacionService) {
     this.login = this.form.group({
@@ -30,10 +31,11 @@ export class LoginPage implements OnInit {
     if (this.login.valid) {
       const username = this.login.get('usuario')?.value;
       const password = this.login.get('contrasenia')?.value;
+      
 
       this.autenticacion.login(username, password).subscribe((autenticado) => {
         if (autenticado) {
-          this.router.navigateByUrl('/menu-inicio');
+          this.router.navigate(['/menu-inicio/']);
         } else {
           this.msjError('Usuario y/o contraseña incorrectos');
         }
@@ -41,7 +43,8 @@ export class LoginPage implements OnInit {
     }
   }
 
-  ngOnInit() {
+  ngOnInit(){
+
   }
 
   async msjExito(mensaje:string){

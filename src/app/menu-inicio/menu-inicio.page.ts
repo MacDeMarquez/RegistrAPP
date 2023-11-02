@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JsondbService } from '../login/jsondb.service';
 
 @Component({
   selector: 'app-menu-inicio',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-inicio.page.scss'],
 })
 export class MenuInicioPage implements OnInit {
-  constructor() { }
+  constructor(private db:JsondbService) { }
+    users : any = [];
+    
+    ngOnInit() {
+      this.listar();
+    }
+  
+    listar()
+    {
+      this.db.getUsers();
+      this.users = this.db.listado;
+    }
 
-  ngOnInit() {
     
   }
 
-}
+
